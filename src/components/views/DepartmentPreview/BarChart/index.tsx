@@ -5,15 +5,15 @@ import Bar from './Bar';
 
 import { Wrapper, BarChartContainer } from './styled';
 
-const Markup = ({ items }): JSX.Element => {
-  const itemsWithRatios = addRatios(items);
+const BarChart = ({ programmes }): JSX.Element => {
+  const itemsWithRatios = addRatios(programmes);
 
   return (
     <Wrapper>
       <BarChartContainer>
         {itemsWithRatios.map(
           (props, index): JSX.Element => (
-            <Bar {...props} items={items} index={index} key={props.name} />
+            <Bar {...props} items={programmes} index={index} key={props.name} />
           ),
         )}
       </BarChartContainer>
@@ -21,4 +21,4 @@ const Markup = ({ items }): JSX.Element => {
   );
 };
 
-export default Markup;
+export default BarChart;

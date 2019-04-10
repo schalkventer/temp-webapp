@@ -59,14 +59,7 @@ const Amount = styled(Typography)`
   }
 `;
 
-export {
-  Wrapper,
-  BarChartContainer,
-  BarChartTotal,
-  ColorBar,
-  Title,
-  Amount
-}
+export { Wrapper, BarChartContainer, BarChartTotal, ColorBar, Title, Amount };
 
 export default {
   Wrapper,
@@ -74,5 +67,5 @@ export default {
   BarChartTotal,
   ColorBar,
   Title,
-  Amount
-}
+  Amount,
+};

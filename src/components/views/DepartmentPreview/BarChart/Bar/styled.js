@@ -64,18 +64,12 @@ const Amount = styled(Typography)`
   }
 `;
 
-export {
-  BarChartTotal,
-  ColorBar,
-  Title,
-  Amount,
-  Details
-}
+export { BarChartTotal, ColorBar, Title, Amount, Details };
 
 export default {
   BarChartTotal,
   ColorBar,
   Title,
   Amount,
-  Details
-}
+  Details,
+};
