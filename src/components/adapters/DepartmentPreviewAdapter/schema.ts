@@ -3,6 +3,7 @@
 
 import faker, { commerce, helpers, finance, random, lorem } from 'faker';
 
+import { TdropdownItem } from '../../views/DepartmentPreview/schema';
 import { TsphereId } from '../../../data/constants/spheres/schema';
 import { TgoverningBodyId } from '../../../data/constants/governingBodies/schema';
 import { TvalidFinancialYear } from '../../../data/constants/financialYears/schema';
@@ -28,14 +29,19 @@ export interface Tresponse {
  * false, the designated view will render. Usually starts as true and then changes to false once all
  * data has been loaded.
  */
-export type loading = boolean;
+export type Tloading = boolean;
+
+export interface Tdata {
+  dropdownItems: TdropdownItem[];
+  departments: Tdepartment[];
+}
 
 /**
  * Internal state of `<DataLoader />`.
  */
 export interface Tstate {
-  loading: loading;
-  data: Tdepartment[] | null;
+  loading: Tloading;
+  data: Tdata | null;
 }
 
 /**

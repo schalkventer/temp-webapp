@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import DepartmentPreview from '../../views/PreviewWrapper';
 import transformData from './transformData';
-import { Tprops, Tstate } from './schema';
-import { Tdepartment } from '../../../data/schemas/departments';
+import { Tprops, Tstate, Tresponse } from './schema';
+import DepartmentPreview from '../../views/DepartmentPreview';
 
 class DataLoader extends Component<Tprops, Tstate> {
   constructor(props) {
@@ -17,36 +16,30 @@ class DataLoader extends Component<Tprops, Tstate> {
   }
 
   componentDidMount(): void {
-    const { year, sphere, government, department } = this.props;
+    const { year, sphere, government } = this.props;
     const api = `/json/${year}/previews/${sphere}/${government}/original.json`;
 
-    const loadliveData = ({ items }: { items: Tdepartment[] }): void =>
-      this.setState({ data: transformData(items, department), loading: false });
+    const loadliveData = (response: Tresponse): void =>
+      this.setState({ data: transformData(response, this.props), loading: false });
 
-    axios
-      .get(api)
-      .then(({ data }: { data: { items: Tdepartment[] } }): { items: Tdepartment[] } => data)
-      .then(loadliveData);
+    axios.get(api).then(loadliveData);
   }
 
   render(): JSX.Element | null {
     const { state, props } = this;
     const { loading, data } = state;
-    const { sphere, department, government, year } = props;
+    const { department } = props;
 
     if (loading || !data) {
       return null;
     }
 
     const passedProps = {
-      items: data,
-      sphere,
-      department,
-      government,
-      year,
+      ...data,
+      initialSelected: department,
     };
 
-    return <Preview {...passedProps} />;
+    return <DepartmentPreview {...passedProps} />;
   }
 }
 

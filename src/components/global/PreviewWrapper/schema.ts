@@ -15,12 +15,6 @@ import {
   Tamount,
 } from '../../../data/schemas/departments';
 
-/**
- * A link string URL that should be used as the link for the call to action button. If this value
- * does not exist, the button will not show.
- */
-export type TbuttonUrl = string;
-
 interface TroutingInfo {
   year: TvalidFinancialYear;
   sphere: TsphereId;

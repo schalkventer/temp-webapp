@@ -17,10 +17,10 @@ import { render } from 'react-dom';
 /**
  * Import and initialise `DepartmentPreview` adapter as needed.
  */
-import DepartmentPreview from './components/adapters/DepartmentPreviewAdapter';
+import DepartmentPreviewAdapter from './components/adapters/DepartmentPreviewAdapter/DataLoader';
 
 const node = document.querySelector('[data-webapp="preview-pages"]');
 
 if (node) {
-  render(<DepartmentPreview />, node);
+  render(<DepartmentPreviewAdapter />, node);
 }
