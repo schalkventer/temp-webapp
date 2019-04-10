@@ -3,7 +3,7 @@
 
 import faker, { commerce, helpers, finance, random, lorem } from 'faker';
 
-import { TdropdownItem } from '../../views/DepartmentPreview/schema';
+import { TdropdownItem, TdepartmentForPreview } from '../../views/DepartmentPreview/schema';
 import { TsphereId } from '../../../data/constants/spheres/schema';
 import { TgoverningBodyId } from '../../../data/constants/governingBodies/schema';
 import { TvalidFinancialYear } from '../../../data/constants/financialYears/schema';
@@ -32,8 +32,8 @@ export interface Tresponse {
 export type Tloading = boolean;
 
 export interface Tdata {
+  departments: TdepartmentForPreview[];
   dropdownItems: TdropdownItem[];
-  departments: Tdepartment[];
 }
 
 /**

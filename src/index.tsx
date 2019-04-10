@@ -12,12 +12,13 @@ import 'core-js/fn/map';
 /**
  * Import tooling needed to initialise adapter components
  */
+import React from 'react';
 import { render } from 'react-dom';
 
 /**
  * Import and initialise `DepartmentPreview` adapter as needed.
  */
-import DepartmentPreviewAdapter from './components/adapters/DepartmentPreviewAdapter/DataLoader';
+import DepartmentPreviewAdapter from './components/adapters/DepartmentPreviewAdapter';
 
 const node = document.querySelector('[data-webapp="preview-pages"]');
 
