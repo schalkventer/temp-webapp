@@ -16,12 +16,10 @@ class DataLoader extends Component<Tprops, Tstate> {
   }
 
   componentDidMount(): void {
-    // eslint-disable-next-line react/destructuring-assignment
-    const { year, sphere, government } = this.props.params;
+    const {
+      params: { year, sphere, government },
+    } = this.props;
     const { params } = this.props;
-
-    console.log(year);
-    console.log(this.props);
 
     const api = `/json/${year}/previews/${sphere}/${government}/original.json`;
 
