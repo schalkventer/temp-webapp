@@ -57,7 +57,9 @@ export interface TrouterProps {
 /**
  * Props that `<DataLoader />` accepts.
  */
-export type Tprops = TrouterProps;
+export interface Tprops {
+  params: TrouterProps;
+}
 
 /** Mock data */
 faker.seed(uniqueProjectSeed);
