@@ -12,6 +12,7 @@ const router = {
   department: 'basic-education',
 };
 
+// @ts-ignore
 const result = transformData(mock, router);
 console.log('Transform Data: National', result);
 const TransformDataNational = (): JSX.Element => <code>{JSON.stringify(result, 0, 2)}</code>;

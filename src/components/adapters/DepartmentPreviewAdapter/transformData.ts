@@ -11,10 +11,10 @@ const createDropdownItems = ({ items }: { items: Tdepartment[] }): TdropdownItem
   );
 
 const checkIfNationalOrProvincial = (government: TrouterProps['government']): string =>
-  government === 'south-africa' ? '' : government;
+  government === 'south-africa' ? '' : `${government}/`;
 
 const createURL = ({ year, sphere, government, department }: TrouterProps): string =>
-  `/${year}/previews/${sphere}/${checkIfNationalOrProvincial(government)}/${department}`;
+  `/${year}/previews/${sphere}/${checkIfNationalOrProvincial(government)}${department}`;
 
 const createNewDepartments = (
   { items }: { items: Tdepartment[] },
