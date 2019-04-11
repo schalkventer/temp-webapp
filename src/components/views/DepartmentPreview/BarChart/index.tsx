@@ -13,7 +13,7 @@ const BarChart = ({ programmes }): JSX.Element => {
       <BarChartContainer>
         {itemsWithRatios.map(
           (props, index): JSX.Element => (
-            <Bar {...props} items={programmes} index={index} key={props.name} />
+            <Bar {...props} items={programmes} index={index} key={props.amount} />
           ),
         )}
       </BarChartContainer>

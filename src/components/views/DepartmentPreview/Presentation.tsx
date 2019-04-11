@@ -3,10 +3,10 @@ import React from 'react';
 import BarChart from './BarChart';
 import { TdepartmentForPreview, TdropdownItem } from './schema';
 
-interface Tprops {
-  department: TdepartmentForPreview;
+type Tprops = {
+  department?: TdepartmentForPreview;
   dropdownItems: TdropdownItem[];
-}
+};
 
 const Presentation = ({ department }: Tprops): JSX.Element => (
   <div>
