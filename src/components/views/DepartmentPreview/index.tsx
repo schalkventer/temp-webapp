@@ -13,7 +13,7 @@ class Preview extends Component<Tprops, Tstate> {
     super(props);
 
     const { initialSelected } = this.props;
-    console.log(mock);
+
     this.state = {
       selected: initialSelected,
     };
