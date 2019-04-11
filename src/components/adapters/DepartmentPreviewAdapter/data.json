@@ -1,4 +1,3 @@
 {
-  "path": "/:year/previews/:sphere/:government/:department",
-  "api": "/json/2018-19/provincial/original.json"
+  "path": "/:year/previews/:sphere/:government/:department"
 }

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import transformData from './transformData';
 import { Tprops, Tstate, Tresponse } from './schema';
-import DepartmentPreview from '../../views/DepartmentPreview';
+import FocusAreaPreview from '../../views/FocusAreaPreview';
 
 class DataLoader extends Component<Tprops, Tstate> {
   constructor(props) {
@@ -16,11 +16,11 @@ class DataLoader extends Component<Tprops, Tstate> {
   }
 
   componentDidMount(): void {
-    const { year, sphere, government } = this.props;
-    const api = `/json/${year}/previews/${sphere}/${government}/original.json`;
+    const { params } = this.props;
+    const api = `/json/${params.year}/focus/original.json`;
 
     const loadliveData = (response: Tresponse): void =>
-      this.setState({ data: transformData(response, this.props), loading: false });
+      this.setState({ data: transformData(response, params), loading: false });
 
     axios.get(api).then(loadliveData);
   }
@@ -28,7 +28,7 @@ class DataLoader extends Component<Tprops, Tstate> {
   render(): JSX.Element | null {
     const { state, props } = this;
     const { loading, data } = state;
-    const { department } = props;
+    const { focusArea } = props.params;
 
     if (loading || !data) {
       return null;
@@ -36,10 +36,10 @@ class DataLoader extends Component<Tprops, Tstate> {
 
     const passedProps = {
       ...data,
-      initialSelected: department,
+      initialSelected: focusArea,
     };
 
-    return <DepartmentPreview {...passedProps} />;
+    return <FocusAreaPreview {...passedProps} />;
   }
 }
 

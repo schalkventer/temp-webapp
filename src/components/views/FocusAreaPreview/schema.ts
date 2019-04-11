@@ -44,7 +44,7 @@ export type TfocusAreaForPreview = {
 };
 
 /**
- * Props passed to `<DepartmentPreview />`
+ * Props passed to `<FocusAreaPreview />`
  */
 export type Tprops = {
   initialSelected: string;
@@ -53,7 +53,7 @@ export type Tprops = {
 };
 
 /**
- * Internal state used inside `<DepartmentPreview />`
+ * Internal state used inside `<FocusAreaPreview />`
  */
 export type Tstate = {
   selected: string;
@@ -77,7 +77,7 @@ const dropdownItems: TdropdownItem[] = [1, 2, 3, 4, 5, 6, 7, 8].map(
 
 const focusAreas: TfocusAreaForPreview[] = dropdownItems.map(
   ({ name }): TfocusAreaForPreview => ({
-    name,
+    title: name,
     id: faker.helpers.slugify(name),
     total: parseFloat(faker.random.number() * 100 + faker.finance.amount()),
     description: faker.lorem.paragraphs(4),

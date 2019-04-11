@@ -1,10 +1,15 @@
-import { TrouterProps, Tresponse, Tdata } from './schema';
-import { departments, dropdownItems } from '../../views/DepartmentPreview/schema';
+import { TrouterProps, Tresponse } from './schema';
+import mock, { TfocusAreaForPreview, TdropdownItem } from '../../views/FocusAreaPreview/schema';
 
-const transformData = (response: Tresponse, routerObject: TrouterProps): Tdata => {
+const { focusAreas, dropdownItems } = mock;
+
+const transformData = (
+  response: Tresponse,
+  routerObject: TrouterProps,
+): { dropdownItems: TdropdownItem[]; focusAreas: TfocusAreaForPreview[] } => {
   return {
     dropdownItems,
-    departments,
+    focusAreas,
   };
 };
 

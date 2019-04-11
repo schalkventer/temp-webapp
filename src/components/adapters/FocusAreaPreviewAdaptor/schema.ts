@@ -6,6 +6,7 @@ type Tresource = {
   format?: string;
   url: string;
 };
+
 type TfocusArea = {
   title: string;
   slug: string;
