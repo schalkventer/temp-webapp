@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 import faker, { commerce, helpers, finance, random, lorem } from 'faker';
+import { kebab } from 'change-case';
 
 import { TdropdownItem, TdepartmentForPreview } from '../../views/DepartmentPreview/schema';
 import { TsphereId } from '../../../data/constants/spheres/schema';
@@ -71,7 +72,7 @@ const mock: Tresponse = {
         title,
         description: lorem.paragraphs(4),
         year: financialYears.years[key],
-        slug: helpers.slugify(title),
+        slug: kebab(title),
         total: parseFloat(random.number() * 100 + finance.amount()),
         percentage_of_budget: parseFloat(random.number() * 100 + finance.amount()),
         programmes: [1, 2, 3, 4, 5, 6].map(
@@ -80,7 +81,7 @@ const mock: Tresponse = {
 
             return {
               title: programmeTitle,
-              slug: helpers.slugify(programmeTitle),
+              slug: kebab(programmeTitle),
               amount: parseFloat(random.number() * 100 + finance.amount()),
               percentage: parseFloat(random.number() * 100 + finance.amount()),
             };
