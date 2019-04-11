@@ -1,6 +1,4 @@
-// / <reference types="node" />
-// / <reference types="react" />
-// / <reference types="react-dom" />
+/* eslint-disable import/export  */
 
 declare namespace NodeJS {
   interface ProcessEnv {

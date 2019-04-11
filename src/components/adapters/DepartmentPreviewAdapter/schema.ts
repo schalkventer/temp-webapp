@@ -1,7 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/camelcase */
 
-import faker, { commerce, helpers, finance, random, lorem } from 'faker';
+import faker, { commerce, finance, random, lorem } from 'faker';
+import { kebab } from 'change-case';
 
 import { TdropdownItem, TdepartmentForPreview } from '../../views/DepartmentPreview/schema';
 import { TsphereId } from '../../../data/constants/spheres/schema';
@@ -18,11 +18,11 @@ import {
 /**
  * The shape of the response received from the API request.
  */
-export interface Tresponse {
+export type Tresponse = {
   data: {
     items: Tdepartment[];
   };
-}
+};
 
 /**
  * While true, then rendering of view is delayed until all critical data has been retrieved. If
@@ -31,33 +31,35 @@ export interface Tresponse {
  */
 export type Tloading = boolean;
 
-export interface Tdata {
+export type Tdata = {
   departments: TdepartmentForPreview[];
   dropdownItems: TdropdownItem[];
-}
+};
 
 /**
  * Internal state of `<DataLoader />`.
  */
-export interface Tstate {
+export type Tstate = {
   loading: Tloading;
   data: Tdata | null;
-}
+};
 
 /**
  * Properties passed inside of `<Routing />`
  */
-export interface TrouterProps {
+export type TrouterProps = {
   year: TvalidFinancialYear;
   sphere: TsphereId;
   government: TgoverningBodyId;
   department: TdepartmentId;
-}
+};
 
 /**
  * Props that `<DataLoader />` accepts.
  */
-export type Tprops = TrouterProps;
+export type Tprops = {
+  params: TrouterProps;
+};
 
 /** Mock data */
 faker.seed(uniqueProjectSeed);
@@ -70,7 +72,7 @@ const mock: Tresponse = {
         title,
         description: lorem.paragraphs(4),
         year: financialYears.years[key],
-        slug: helpers.slugify(title),
+        slug: kebab(title),
         total: parseFloat(random.number() * 100 + finance.amount()),
         percentage_of_budget: parseFloat(random.number() * 100 + finance.amount()),
         programmes: [1, 2, 3, 4, 5, 6].map(
@@ -79,7 +81,7 @@ const mock: Tresponse = {
 
             return {
               title: programmeTitle,
-              slug: helpers.slugify(programmeTitle),
+              slug: kebab(programmeTitle),
               amount: parseFloat(random.number() * 100 + finance.amount()),
               percentage: parseFloat(random.number() * 100 + finance.amount()),
             };

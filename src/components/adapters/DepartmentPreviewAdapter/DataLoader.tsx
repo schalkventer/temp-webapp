@@ -16,11 +16,15 @@ class DataLoader extends Component<Tprops, Tstate> {
   }
 
   componentDidMount(): void {
-    const { year, sphere, government } = this.props;
+    const {
+      params: { year, sphere, government },
+    } = this.props;
+    const { params } = this.props;
+
     const api = `/json/${year}/previews/${sphere}/${government}/original.json`;
 
     const loadliveData = (response: Tresponse): void =>
-      this.setState({ data: transformData(response, this.props), loading: false });
+      this.setState({ data: transformData(response, params), loading: false });
 
     axios.get(api).then(loadliveData);
   }
@@ -28,7 +32,7 @@ class DataLoader extends Component<Tprops, Tstate> {
   render(): JSX.Element | null {
     const { state, props } = this;
     const { loading, data } = state;
-    const { department } = props;
+    const { department } = props.params;
 
     if (loading || !data) {
       return null;
