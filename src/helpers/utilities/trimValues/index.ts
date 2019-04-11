@@ -1,4 +1,4 @@
-const trimValues = (rawValue, abbreviated) => {
+const trimValues = (rawValue, abbreviated): string | null => {
   const value = parseInt(rawValue, 10);
   const million = abbreviated ? 'm' : 'million';
   const billion = abbreviated ? 'bn' : 'billion';
