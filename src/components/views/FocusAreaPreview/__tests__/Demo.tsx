@@ -1,8 +1,8 @@
 import React from 'react';
 import { object, select } from '@storybook/addon-knobs';
 
-import DepartmentPreview from '../index';
-import { departments, dropdownItems, Tprops } from '../schema';
+import FocusAreaPreview from '../index';
+import { dropdownItems, Tprops, focusAreas } from '../schema';
 
 const createDemoProps = (): Tprops => ({
   initialSelected: select(
@@ -10,10 +10,10 @@ const createDemoProps = (): Tprops => ({
     dropdownItems.map(({ id }): string => id),
     dropdownItems[0].id,
   ),
-  departments: object('departments', departments),
   dropdownItems: object('dropdownItems', dropdownItems),
+  focusAreas: object('focusAreas', focusAreas),
 });
 
-const Demo = (): JSX.Element => <DepartmentPreview {...createDemoProps()} />;
+const Demo = (): JSX.Element => <FocusAreaPreview {...createDemoProps()} />;
 
 export default Demo;

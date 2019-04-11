@@ -36,7 +36,7 @@ export type TbuttonUrl = string;
 /**
  * The shape of a department object configured specifically for the view.
  */
-export interface TdepartmentForPreview {
+export type TdepartmentForPreview = {
   id: TdepartmentId;
   name: TdepartmentName;
   total: Tamount;
@@ -44,31 +44,31 @@ export interface TdepartmentForPreview {
   percentage: TamountPercentage;
   programmes: TdepartmentProgramme[];
   url: TbuttonUrl;
-}
+};
 
 /**
  * An item that can be selected in the dropdown menu. If an item is clicked `selected` in state will change to
  */
-export interface TdropdownItem {
+export type TdropdownItem = {
   id: TdepartmentId;
   name: TdepartmentName;
-}
+};
 
 /**
  * Props passed to `<DepartmentPreview />`
  */
-export interface Tprops {
+export type Tprops = {
   initialSelected: TinitialSelected;
   departments: TdepartmentForPreview[];
   dropdownItems: TdropdownItem[];
-}
+};
 
 /**
  * Internal state used inside `<DepartmentPreview />`
  */
-export interface Tstate {
+export type Tstate = {
   selected: Tselected;
-}
+};
 
 /** Mock props to accept */
 faker.seed(uniqueProjectSeed);

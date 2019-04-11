@@ -18,11 +18,11 @@ import {
 /**
  * The shape of the response received from the API request.
  */
-export interface Tresponse {
+export type Tresponse = {
   data: {
     items: Tdepartment[];
   };
-}
+};
 
 /**
  * While true, then rendering of view is delayed until all critical data has been retrieved. If
@@ -31,35 +31,35 @@ export interface Tresponse {
  */
 export type Tloading = boolean;
 
-export interface Tdata {
+export type Tdata = {
   departments: TdepartmentForPreview[];
   dropdownItems: TdropdownItem[];
-}
+};
 
 /**
  * Internal state of `<DataLoader />`.
  */
-export interface Tstate {
+export type Tstate = {
   loading: Tloading;
   data: Tdata | null;
-}
+};
 
 /**
  * Properties passed inside of `<Routing />`
  */
-export interface TrouterProps {
+export type TrouterProps = {
   year: TvalidFinancialYear;
   sphere: TsphereId;
   government: TgoverningBodyId;
   department: TdepartmentId;
-}
+};
 
 /**
  * Props that `<DataLoader />` accepts.
  */
-export interface Tprops {
+export type Tprops = {
   params: TrouterProps;
-}
+};
 
 /** Mock data */
 faker.seed(uniqueProjectSeed);
