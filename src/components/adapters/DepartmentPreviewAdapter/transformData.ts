@@ -39,10 +39,10 @@ const createNewDepartments = (
   );
 
 // @ts-ignore
-const transformData = ({ data: { data } }: Tresponse, routerObject: TrouterProps): Tdata => {
+const transformData = (response: Tresponse, routerObject: TrouterProps): Tdata => {
   return {
-    dropdownItems: createDropdownItems(data),
-    departments: createNewDepartments(data, routerObject),
+    dropdownItems: createDropdownItems(response.data),
+    departments: createNewDepartments(response.data, routerObject),
   };
 };
 

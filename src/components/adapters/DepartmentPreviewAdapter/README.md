@@ -1,3 +1,8 @@
+# DepartmentPreviewAdapter
+
+## Schema
+
+```ts
 /* eslint-disable @typescript-eslint/camelcase */
 
 import faker, { commerce, helpers, finance, random, lorem } from 'faker';
@@ -92,3 +97,4 @@ const mock: Tresponse = {
 };
 
 export default mock;
+```
