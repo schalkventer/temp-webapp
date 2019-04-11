@@ -4,7 +4,7 @@ import BarChart from './BarChart';
 import { TdepartmentForPreview, TdropdownItem } from './schema';
 
 type Tprops = {
-  department?: TdepartmentForPreview;
+  department: TdepartmentForPreview;
   dropdownItems: TdropdownItem[];
 };
 
