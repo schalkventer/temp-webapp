@@ -17,7 +17,7 @@
     "test:lint:eslint": "eslint src --ext .jsx --ext .js --ext .tsx --ext .ts --fix",
     "test:lint:stylelint": "stylelint src",
     "test:lint": "yarn test:lint:eslint && test:lint:stylelint",
-    "test": "yarn test:jest && yarn test:lint && yarn build:react"
+    "test": "yarn test:lint && yarn build:react"
   },
   "dependencies": {
     "@babel/core": "^7.4.0",

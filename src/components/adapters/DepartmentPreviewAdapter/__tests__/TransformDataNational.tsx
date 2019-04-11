@@ -1,3 +1,5 @@
+/* eslint-disable no-console  */
+
 import React from 'react';
 
 import mock from '../schema';
@@ -11,7 +13,7 @@ const router = {
 };
 
 const result = transformData(mock, router);
-console.log('Transform Data', result);
-const Basic = () => <code>{JSON.stringify(result, 0, 2)}</code>;
+console.log('Transform Data: National', result);
+const TransformDataNational = (): JSX.Element => <code>{JSON.stringify(result, 0, 2)}</code>;
 
-export default Basic;
+export default TransformDataNational;

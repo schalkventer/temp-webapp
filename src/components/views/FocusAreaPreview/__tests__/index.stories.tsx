@@ -7,11 +7,11 @@ import content from '../README.md';
 import Demo from './Demo';
 import Basic from './Basic';
 
-storiesOf('⚙️ components|views/DepartmentPreview', module)
+storiesOf('⚙️ components|views/FocusAreaPreview', module)
   .add('README', (): JSX.Element => <Fragment />, { readme: { content } })
   .add('Demo', (): JSX.Element => <Demo />);
 
-storiesOf('⚙️ components|views/DepartmentPreview/tests', module).add(
+storiesOf('⚙️ components|views/FocusAreaPreview/tests', module).add(
   'Basic',
   (): JSX.Element => <Basic />,
 );

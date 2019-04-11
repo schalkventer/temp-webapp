@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
-import faker, { commerce, helpers, finance, random, lorem } from 'faker';
+import faker, { commerce, finance, random, lorem } from 'faker';
 import { kebab } from 'change-case';
 
 import { TdropdownItem, TdepartmentForPreview } from '../../views/DepartmentPreview/schema';

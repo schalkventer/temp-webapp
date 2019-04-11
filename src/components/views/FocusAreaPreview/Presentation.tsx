@@ -1,8 +1,8 @@
 import React from 'react';
-import { TdepartmentForPreview, TdropdownItem } from './schema';
+import { TfocusAreaForPreview, TdropdownItem } from './schema';
 
 interface Tprops {
-  department?: TdepartmentForPreview;
+  department?: TfocusAreaForPreview;
   dropdownItems: TdropdownItem[];
 }
 

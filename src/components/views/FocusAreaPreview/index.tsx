@@ -33,11 +33,11 @@ class Preview extends Component<Tprops, Tstate> {
 
   render(): JSX.Element {
     const { state, props, events } = this;
-    const { departments, dropdownItems } = props;
+    const { focusAreas, dropdownItems } = props;
     const { selectedChangeHandler } = events;
     const { selected } = state;
 
-    const department = departments.find(({ id }): boolean => id === selected);
+    const department = focusAreas.find(({ id }): boolean => id === selected);
     return <Presentation {...{ department, dropdownItems, selectedChangeHandler }} />;
   }
 }
