@@ -3,23 +3,23 @@ import { kebab } from 'change-case';
 
 import uniqueProjectSeed from '../../../helpers/utilities/uniqueProjectSeed';
 
-export interface Tresource {
+export type Tresource = {
   name: string;
   format?: string;
   url: string;
-}
+};
 
-export interface TdropdownItem {
+export type TdropdownItem = {
   id: string;
   name: string;
-}
+};
 
-export interface TtransformedChartItem {
+export type TtransformedChartItem = {
   title: string;
   id: string;
   amount: number;
   percentage: number;
-}
+};
 
 export type TtransformedChartItemWithChildren = TtransformedChartItem & {
   children: TtransformedChartItem[];
@@ -31,7 +31,7 @@ export type TtransformedChartItemWithChildren = TtransformedChartItem & {
  */
 export type TbuttonUrl = string;
 
-export interface TfocusAreaForPreview {
+export type TfocusAreaForPreview = {
   name: string;
   id: string;
   total: number;
@@ -41,23 +41,23 @@ export interface TfocusAreaForPreview {
   national: TtransformedChartItem[];
   provincial: TtransformedChartItemWithChildren[];
   resources: Tresource[];
-}
+};
 
 /**
  * Props passed to `<DepartmentPreview />`
  */
-export interface Tprops {
+export type Tprops = {
   initialSelected: string;
   focusAreas: TfocusAreaForPreview[];
   dropdownItems: TdropdownItem[];
-}
+};
 
 /**
  * Internal state used inside `<DepartmentPreview />`
  */
-export interface Tstate {
+export type Tstate = {
   selected: string;
-}
+};
 
 /**
  * Mocks props for `<FocusAreaPreview>`.
