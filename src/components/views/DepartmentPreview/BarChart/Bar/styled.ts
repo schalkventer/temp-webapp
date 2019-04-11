@@ -14,8 +14,8 @@ const BarChartTotal = styled.div`
 `;
 
 const ColorBar = styled.div`
-  width: ${({ ratio }) => ratio}%;
-  background-color: ${({ color }) => color};
+  width: ${({ ratio }): number => ratio}%;
+  background-color: ${({ color }): string => color};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,7 @@ const ColorBar = styled.div`
 `;
 
 const Details = styled.div`
-  text-align: ${({ labelOutside }) => (labelOutside ? 'left' : 'right')};
+  text-align: ${({ labelOutside }): boolean => (labelOutside ? 'left' : 'right')};
   display: flex;
   flex-direction: column;
   justify-content: center;
