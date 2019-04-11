@@ -1,12 +1,13 @@
 import faker from 'faker';
 import { kebab } from 'change-case';
 
-interface Tresource {
+type Tresource = {
   name: string;
   format?: string;
   url: string;
-}
-interface TfocusArea {
+};
+
+type TfocusArea = {
   title: string;
   slug: string;
   description: string;
@@ -15,20 +16,20 @@ interface TfocusArea {
   resources: Tresource[];
   national: TchartItem[];
   provincial: TchartItemWithChildren[];
-}
+};
 
-interface TchartItem {
+type TchartItem = {
   title: string;
   slug: string;
   amount: number;
   percentage: number;
-}
+};
 
 type TchartItemWithChildren = TchartItem & { children: TchartItem[] };
 
-interface Tresponse {
+type Tresponse = {
   items: TfocusArea[];
-}
+};
 
 /**
  * Mocks response from API.
