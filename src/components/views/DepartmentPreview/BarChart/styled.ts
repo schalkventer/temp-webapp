@@ -23,7 +23,7 @@ const BarChartTotal = styled.div`
 `;
 
 const ColorBar = styled.div`
-  width: ${({ ratio }) => ratio}%;
+  width: ${({ ratio }): number => ratio}%;
   background-color: #e57373;
   display: flex;
   flex-direction: column;
