@@ -2,7 +2,7 @@ import { colors } from './data.json';
 
 const amountOfColors = colors.length;
 
-function* createColorGenerator() {
+function* createColorGenerator(): any {
   let count = 0;
 
   while (true) {
