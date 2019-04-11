@@ -1,12 +1,17 @@
 import faker from 'faker';
 import { kebab } from 'change-case';
 
-interface Tresource {
+import { TsphereId } from '../../../data/constants/spheres/schema';
+import { TgoverningBodyId } from '../../../data/constants/governingBodies/schema';
+import { TvalidFinancialYear } from '../../../data/constants/financialYears/schema';
+import { TdepartmentId } from '../../../data/schemas/departments';
+
+export interface Tresource {
   name: string;
   format?: string;
   url: string;
 }
-interface TfocusArea {
+export interface TfocusArea {
   title: string;
   slug: string;
   description: string;
@@ -17,16 +22,34 @@ interface TfocusArea {
   provincial: TchartItemWithChildren[];
 }
 
-interface TchartItem {
+export interface TfocusAreaNew {
+  name: string;
+  id: string;
+  description: string;
+  total: number;
+  percentage: number;
+  resources: Tresource[];
+  national: TchartItem[];
+  provincial: TchartItemWithChildren[];
+}
+
+export interface TchartItem {
   title: string;
   slug: string;
   amount: number;
   percentage: number;
 }
 
-type TchartItemWithChildren = TchartItem & { children: TchartItem[] };
+export interface TrouterProps {
+  year: TvalidFinancialYear;
+  sphere: TsphereId;
+  government: TgoverningBodyId;
+  department: TdepartmentId;
+}
 
-interface Tresponse {
+export type TchartItemWithChildren = TchartItem & { children: TchartItem[] };
+
+export interface Tresponse {
   items: TfocusArea[];
 }
 

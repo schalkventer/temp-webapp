@@ -1,10 +1,28 @@
-import { TrouterProps, Tresponse, Tdata } from './schema';
-import { departments, dropdownItems } from '../../views/DepartmentPreview/schema';
+// @ts-ignore
+import { Tresponse, Tdata, TfocusArea, TfocusAreaNew } from './schema';
+import { TdropdownItem } from '../../views/DepartmentPreview/schema';
 
-const transformData = (response: Tresponse, routerObject: TrouterProps): Tdata => {
+const createDropdownItems = ({ items }: Tresponse): TdropdownItem[] =>
+  items.map(
+    ({ title: name, slug: id }): TdropdownItem => ({
+      name,
+      id,
+    }),
+  );
+
+const createFocusAreas = ({ items }): TfocusAreaNew[] =>
+  items.map(
+    ({ title: name, slug: id, ...otherValues }: TfocusArea): TfocusAreaNew => ({
+      ...otherValues,
+      name,
+      id,
+    }),
+  );
+
+const transformData = (response: Tresponse): Tdata => {
   return {
-    dropdownItems,
-    departments,
+    dropdownItems: createDropdownItems(response),
+    departments: createFocusAreas(response),
   };
 };
 
