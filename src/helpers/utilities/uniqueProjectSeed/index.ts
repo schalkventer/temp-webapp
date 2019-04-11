@@ -1,8 +1,9 @@
 import { TconvertLetterToNumber, TcreateUniqueProjectSeed, TuniqueProjectSeed } from './schema';
 
-const createUniqueProjectSeed: TcreateUniqueProjectSeed = value => {
+const createUniqueProjectSeed: TcreateUniqueProjectSeed = (value: string): number => {
   const array = value.split('');
-  const convertLetterToNumber: TconvertLetterToNumber = letter => Math.abs(letter.charCodeAt(0));
+  const convertLetterToNumber: TconvertLetterToNumber = (letter: string): number =>
+    Math.abs(letter.charCodeAt(0));
   const result = array.map(convertLetterToNumber);
   return parseInt(result.join(''), 10);
 };

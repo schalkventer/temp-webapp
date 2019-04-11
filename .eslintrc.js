@@ -33,7 +33,8 @@ module.exports =  {
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-member-accessibility': "off",
     'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
-    'react/jsx-one-expression-per-line': 'off' // Conflicts with Prettier
+    'react/jsx-one-expression-per-line': 'off', // Conflicts with Prettier
+    '@typescript-eslint/prefer-interface': 'off'
   },
   settings: {
     'import/resolver': {
