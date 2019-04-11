@@ -5,7 +5,7 @@ import DataLoader from './DataLoader';
 import { path } from './data.json';
 import { TrouterProps } from './schema';
 
-const ResolveDepartmentRoute = ({ match }: { match: TrouterProps }): JSX.Element => (
+const ResolveDepartmentRoute = ({ match }: { match: { params: TrouterProps } }): JSX.Element => (
   <DataLoader {...match} />
 );
 
