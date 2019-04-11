@@ -9,7 +9,7 @@ class ResizeWindowListener {
     this.onResize();
   }
 
-  stop = () => {
+  stop = (): number => {
     const size = this.dimensions !== 'height' ? window.innerWidth : window.innerHeight;
 
     window.removeEventListener('resize', this.debouncedResize, false);
@@ -17,7 +17,7 @@ class ResizeWindowListener {
     return size;
   };
 
-  onResize = () => {
+  onResize = (): number => {
     const size = this.dimensions !== 'height' ? window.innerWidth : window.innerHeight;
 
     if (this.callback) {
