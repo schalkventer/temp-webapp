@@ -1,10 +1,10 @@
 import React from 'react';
 import { TdepartmentForPreview, TdropdownItem } from './schema';
 
-interface Tprops {
+type Tprops = {
   department?: TdepartmentForPreview;
   dropdownItems: TdropdownItem[];
-}
+};
 
 const Presentation = (props: Tprops): JSX.Element => (
   <div>
