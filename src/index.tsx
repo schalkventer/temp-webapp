@@ -12,16 +12,24 @@ import 'core-js/fn/map';
 /**
  * Import tooling needed to initialise adapter components
  */
-import React from 'react';
+import React, { Suspense } from 'react';
 import { render } from 'react-dom';
 
 /**
- * Import and initialise `DepartmentPreview` adapter as needed.
+ * Import and initialise `DepartmentPreview` adapter if node exists in HTML.
  */
-import DepartmentPreviewAdapter from './components/adapters/DepartmentPreviewAdapter';
-
 const node = document.querySelector('[data-webapp="preview-pages"]');
 
 if (node) {
-  render(<DepartmentPreviewAdapter />, node);
+  const DepartmentPreviewAdapter = React.lazy(
+    (): any => import('./components/adapters/DepartmentPreviewAdapter'),
+  );
+
+  const LoadingWrapper = (): JSX.Element => (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DepartmentPreviewAdapter />
+    </Suspense>
+  );
+
+  render(<LoadingWrapper />, node);
 }
