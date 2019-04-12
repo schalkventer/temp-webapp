@@ -3,7 +3,7 @@ import copy from 'copy-to-clipboard';
 
 import Icon from '@material-ui/icons/ArrowDownward';
 import Copy from '@material-ui/icons/FileCopy';
-import { Tresources, Theading, Tsize, Tformat, Tlink } from './schema';
+import { Tresources } from './schema';
 
 import {
   List,
