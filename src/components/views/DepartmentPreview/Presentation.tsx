@@ -1,14 +1,16 @@
 import React from 'react';
+
+import BarChart from './BarChart';
 import { TdepartmentForPreview, TdropdownItem } from './schema';
 
 type Tprops = {
-  department?: TdepartmentForPreview;
+  department: TdepartmentForPreview;
   dropdownItems: TdropdownItem[];
 };
 
-const Presentation = (props: Tprops): JSX.Element => (
+const Presentation = ({ department }: Tprops): JSX.Element => (
   <div>
-    <button type="button">asdasd</button>
+    <BarChart programmes={department.programmes} />
   </div>
 );
 
