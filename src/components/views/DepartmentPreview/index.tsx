@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Presentation from './Presentation';
 import { TdepartmentId } from '../../../data/schemas/departments';
-import { Tstate, Tprops, TbuttonUrl } from './schema';
+import mock, { Tstate, Tprops, TbuttonUrl } from './schema';
 
 class Preview extends Component<Tprops, Tstate> {
   public events = {
