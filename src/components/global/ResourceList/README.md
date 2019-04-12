@@ -17,3 +17,15 @@ Custom styling added to Material UI components namely:
 - Card
 - CardContent
 - Button
+
+```ts
+/**
+ * Array of strings that displays information on each resource card
+ */
+type Tresources = {
+  heading: string;
+  size: string | null;
+  format: string;
+  link: string;
+};
+```
