@@ -7,7 +7,7 @@ type Tstate = {
 };
 
 type Tprops = {
-  share: string | null;
+  share?: string | boolean | null;
 };
 
 type Tevents = {
