@@ -39,74 +39,75 @@ const StyledCloseIcon = styled(CloseIcon)`
   color: #3f3f3f;
 `;
 
-const createNewTab = (newUrl) => {
+type Tobject = {
+  title: string | null;
+  icon: any;
+  action: any;
+};
+
+const createNewTab = (newUrl): any => {
   const { focus } = window.open(newUrl, '_blank');
   return focus();
 };
 
-const sharing = [
-  'Copy link',
-  'Share on Facebook',
-  'Share on Twitter',
-  'Share on Linkedin',
-];
+const sharing = ['Copy link', 'Share on Facebook', 'Share on Twitter', 'Share on Linkedin'];
 
-const getUrl = (baseUrl, title) => {
+const getUrl = (baseUrl, title): string | null => {
   switch (title) {
-    case 'Copy link': return `baseUrl`;
-    case 'Share on Facebook': return `https://www.facebook.com/sharer/sharer.php?u=${baseUrl}`;
-    case 'Share on Twitter': return `https://twitter.com/home?status=${baseUrl}`;
-    case 'Share on Linkedin': return `https://www.linkedin.com/shareArticle?mini=true&url=${baseUrl}`;
-    default: return null;
-  };
+    case 'Copy link':
+      return `baseUrl`;
+    case 'Share on Facebook':
+      return `https://www.facebook.com/sharer/sharer.php?u=${baseUrl}`;
+    case 'Share on Twitter':
+      return `https://twitter.com/home?status=${baseUrl}`;
+    case 'Share on Linkedin':
+      return `https://www.linkedin.com/shareArticle?mini=true&url=${baseUrl}`;
+    default:
+      return null;
+  }
 };
 
-const createObjects = (baseUrl, toggleModal, toggleSharingOpen) => (title) => {
+const createObjects = (baseUrl, toggleModal, toggleSharingOpen): any => (title): Tobject => {
   if (title === 'Copy link') {
     return {
       title,
       icon: <Icon {...{ title }} />,
-      action: () => {
+      action: (): any => {
         toggleSharingOpen();
-        toggleModal(baseUrl)
-      }
-    }
+        toggleModal(baseUrl);
+      },
+    };
   }
 
   return {
     title,
     icon: <Icon {...{ title }} />,
-    action: () => {
+    action: (): any => {
       toggleSharingOpen();
-      createNewTab(getUrl(baseUrl, title))
+      createNewTab(getUrl(baseUrl, title));
     },
-  }
+  };
 };
 
-const creataShareLink = ({ title, icon, action }) => (
-  <SpeedDialAction
-    key={title}
-    icon={icon}
-    tooltipTitle={title}
-    onClick={action}
-  />
-)
+const creataShareLink = ({ title, icon, action }): JSX.Element => (
+  <SpeedDialAction key={title} icon={icon} tooltipTitle={title} onClick={action} />
+);
 
-const createButtons = (toggleModal, toggleSharingOpen, share) => {
-  const url = document.URL.replace(/#.*$/, "");
+const createButtons = (toggleModal, toggleSharingOpen, share): any => {
+  const url = document.URL.replace(/#.*$/, '');
 
-  const baseUrl = typeof(share) === 'string' ? `${url}/#${share}` : url;
-  const buttonsInfo = sharing.map(createObjects(baseUrl, toggleModal, toggleSharingOpen))
+  const baseUrl = typeof share === 'string' ? `${url}/#${share}` : url;
+  const buttonsInfo = sharing.map(createObjects(baseUrl, toggleModal, toggleSharingOpen));
 
   return buttonsInfo.map(creataShareLink);
 };
 
-const Markup = ({ sharingOpen, toggleSharingOpen, toggleModal, modal, share }) => {
+const Markup = ({ sharingOpen, toggleSharingOpen, toggleModal, modal, share }): JSX.ELement => {
   return (
     <React.Fragment>
       <StyledSpeedDial
         ariaLabel="SpeedDial openIcon example"
-        icon={!!sharingOpen ? <StyledCloseIcon /> : <PositionedShareIcon />}
+        icon={sharingOpen ? <StyledCloseIcon /> : <PositionedShareIcon />}
         onClick={toggleSharingOpen}
         open={!!sharingOpen}
         direction="down"
@@ -114,9 +115,9 @@ const Markup = ({ sharingOpen, toggleSharingOpen, toggleModal, modal, share }) =
       >
         {createButtons(toggleModal, toggleSharingOpen, share)}
       </StyledSpeedDial>
-      <Modal open={!!modal} closeModal={() => toggleModal(null)} url={modal} />
+      <Modal open={!!modal} closeModal={(): any => toggleModal(null)} url={modal} />
     </React.Fragment>
   );
-}
+};
 
 export default Markup;
