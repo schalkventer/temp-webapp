@@ -3,8 +3,19 @@ import React from 'react';
 import SectionHeading from '../index';
 import { phases, years } from '../schema';
 
-const Default = (): JSX.Element => (
-  <SectionHeading title="Provincial Budget Summary" share years={years} phases={phases} />
+const Basic = (): JSX.Element => <SectionHeading title="National Budget Summary" share />;
+
+const BasicNoShare = (): JSX.Element => (
+  <SectionHeading title="National Budget Summary" phases={phases} years={years} />
 );
 
-export default Default;
+const BasicShareIsAString = (): JSX.Element => (
+  <SectionHeading
+    title="National Budget Summary"
+    share="enterTextHere"
+    phases={phases}
+    years={years}
+  />
+);
+
+export { Basic, BasicNoShare, BasicShareIsAString };
