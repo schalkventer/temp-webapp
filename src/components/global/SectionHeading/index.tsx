@@ -15,7 +15,7 @@ import {
   SpeedDialContainer,
 } from './styled';
 
-const callShareIcon = share => {
+const callShareIcon = (share): JSX.Element | null => {
   if (!share) return null;
 
   if (typeof share === 'string') {
@@ -29,36 +29,36 @@ const callShareIcon = share => {
   if (share) return <SpeedDial />;
 };
 
-const callBudgetPhaseSelect = phases => (
+const callBudgetPhaseSelect = (phases): JSX.Element => (
   <BudgetPhase>
-     <SelectStyledPhase
+    <SelectStyledPhase
       disabled
       displayEmpty
       classes={{ selectMenu: 'selectMenu', disabled: 'disabled', icon: 'icon' }}
     >
       <MenuItem>{phases.disabled}</MenuItem>
     </SelectStyledPhase>
-   </BudgetPhase>
+  </BudgetPhase>
 );
 
-const callYearsSelect = years => (
+const callYearsSelect = (years): JSX.Element => (
   <SelectStyled
-     disabled
-     displayEmpty
-     classes={{ selectMenu: 'selectMenu', disabled: 'disabled', icon: 'icon' }}
-   >
-     <MenuItem>{years.disabled}</MenuItem>
-   </SelectStyled>
+    disabled
+    displayEmpty
+    classes={{ selectMenu: 'selectMenu', disabled: 'disabled', icon: 'icon' }}
+  >
+    <MenuItem>{years.disabled}</MenuItem>
+  </SelectStyled>
 );
 
-const callSelectDownOptions = (years, phases) => (
+const callSelectDownOptions = (years, phases): JSX.Element => (
   <FormContainer>
-     {phases && callBudgetPhaseSelect(phases)}
-     {years && callYearsSelect(years)}
-   </FormContainer>
+    {phases && callBudgetPhaseSelect(phases)}
+    {years && callYearsSelect(years)}
+  </FormContainer>
 );
 
-const SectionHeading = ({ title, share, years, phases }) => (
+const SectionHeading = ({ title, share, years, phases }): JSX.Element => (
   <Wrapper>
     <BudgetContainer>
       <BudgetHeadingAndShareIcon>
