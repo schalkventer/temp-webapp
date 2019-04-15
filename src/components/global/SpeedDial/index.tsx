@@ -1,39 +1,43 @@
 import React, { Component } from 'react';
-import Markup from './Markup';
+import Presentation from './Presentation';
 
 type Tstate = {
   sharingOpen: boolean;
-  modal: boolean;
+  modal: string | boolean | null;
 };
 
 type Tprops = {
-  share: string | boolean;
+  share: string | null;
 };
 
-type Tevents = {};
+type Tevents = {
+  toggleModal: any;
+  toggleSharingOpen: any;
+};
 
-class SpeedDial extends Component {
+class SpeedDial extends Component<Tprops, Tstate> {
+  public events: Tevents = {
+    toggleModal: this.toggleModal.bind(this),
+    toggleSharingOpen: this.toggleSharingOpen.bind(this),
+  };
+
   constructor(props) {
     super(props);
-
     this.state = {
       sharingOpen: false,
       modal: false,
     };
-
-    this.events = {
-      toggleModal: this.toggleModal.bind(this),
-      toggleSharingOpen: this.toggleSharingOpen.bind(this),
-    };
   }
 
-  toggleModal(value = null) {
-    return this.setState({ modal: value });
+  toggleModal(value = null): null {
+    this.setState({ modal: value });
+    return null;
   }
 
-  toggleSharingOpen() {
+  toggleSharingOpen(): null {
     const { sharingOpen: currentSharingOpen } = this.state;
-    return this.setState({ sharingOpen: !currentSharingOpen });
+    this.setState({ sharingOpen: !currentSharingOpen });
+    return null;
   }
 
   render(): JSX.Element {
@@ -47,7 +51,7 @@ class SpeedDial extends Component {
       share: props.share,
     };
 
-    return <Markup {...passedProps} />;
+    return <Presentation {...passedProps} />;
   }
 }
 
