@@ -17,8 +17,6 @@ import {
 } from './styled';
 
 const callShareIcon = (share): JSX.Element | null => {
-  if (!share) return null;
-
   if (typeof share === 'string') {
     return (
       <SpeedDialContainer>
@@ -27,7 +25,9 @@ const callShareIcon = (share): JSX.Element | null => {
     );
   }
 
-  if (share) return <SpeedDial />;
+  if (share) return <SpeedDial share />;
+
+  return null;
 };
 
 const callBudgetPhaseSelect = (phases): JSX.Element => (
