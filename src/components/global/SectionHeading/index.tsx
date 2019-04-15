@@ -2,6 +2,7 @@ import React from 'react';
 
 import { MenuItem } from '@material-ui/core';
 import SpeedDial from '../SpeedDial';
+import { Tprops } from './schema';
 
 import {
   Wrapper,
@@ -58,7 +59,7 @@ const callSelectDownOptions = (years, phases): JSX.Element => (
   </FormContainer>
 );
 
-const SectionHeading = ({ title, share, years, phases }): JSX.Element => (
+const SectionHeading = ({ title, share, years, phases }: Tprops): JSX.Element => (
   <Wrapper>
     <BudgetContainer>
       <BudgetHeadingAndShareIcon>
