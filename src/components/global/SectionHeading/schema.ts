@@ -1,5 +1,5 @@
 export type Ttitle = string;
-export type Tshare = string | boolean;
+export type Tshare = string | boolean | null;
 type Tdisabled = string;
 
 export type Tphases = {
@@ -8,6 +8,13 @@ export type Tphases = {
 
 export type Tyears = {
   disabled: Tdisabled;
+};
+
+export type Tprops = {
+  title: Ttitle;
+  share?: Tshare;
+  phases?: Tphases;
+  years?: Tyears;
 };
 
 const phases: Tphases = {
