@@ -1,15 +1,17 @@
 import React from 'react';
-import t from 'prop-types';
 import styled from 'styled-components';
 import { darken } from 'polished';
 import copy from 'copy-to-clipboard';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogActions from '@material-ui/core/DialogActions';
-import Zoom from '@material-ui/core/Zoom';
-import Button from '@material-ui/core/Button';
+
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Zoom,
+  Button,
+} from '@material-ui/core';
 
 const PrimaryButton = styled(Button)`
   && {
@@ -49,13 +51,8 @@ const StyledDialogActions = styled(DialogActions)`
   }
 `;
 
-
-const Modal = ({ open, closeModal, url }) => (
-  <Dialog
-    {...{ open }}
-    onClose={closeModal}
-    TransitionComponent={Zoom}
-  >
+const Modal = ({ open, closeModal, url }): JSX.Element => (
+  <Dialog {...{ open }} onClose={closeModal} TransitionComponent={Zoom}>
     <DialogTitle>Share</DialogTitle>
     <DialogContent>
       <DialogContentText>
@@ -64,25 +61,10 @@ const Modal = ({ open, closeModal, url }) => (
       </DialogContentText>
     </DialogContent>
     <StyledDialogActions>
-      <SecondaryButton onClick={closeModal}>
-        Close
-      </SecondaryButton>
-      <PrimaryButton onClick={() => copy(url)}>
-        Copy To Clipboard
-      </PrimaryButton>
+      <SecondaryButton onClick={closeModal}>Close</SecondaryButton>
+      <PrimaryButton onClick={(): any => copy(url)}>Copy To Clipboard</PrimaryButton>
     </StyledDialogActions>
   </Dialog>
 );
 
 export default Modal;
-
-
-Modal.propTypes = {
-  closeModal: t.func.isRequired,
-  videoUrl: t.string,
-}
-
-
-Modal.defaultProps = {
-  videoUrl: null,
-}
