@@ -25,7 +25,7 @@ const callShareIcon = (share): JSX.Element | null => {
     );
   }
 
-  if (share) return <SpeedDial share />;
+  if (share) return <SpeedDial />;
 
   return null;
 };
