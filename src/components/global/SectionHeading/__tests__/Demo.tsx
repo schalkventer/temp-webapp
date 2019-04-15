@@ -1,19 +1,10 @@
 import React from 'react';
-import { object, select } from '@storybook/addon-knobs';
 
 import SectionHeading from '../index';
-import { departments, dropdownItems, Tprops } from '../schema';
+import { phases, years } from '../schema';
 
-const createDemoProps = (): Tprops => ({
-  initialSelected: select(
-    'intialSelected',
-    dropdownItems.map(({ id }): string => id),
-    dropdownItems[0].id,
-  ),
-  departments: object('departments', departments),
-  dropdownItems: object('dropdownItems', dropdownItems),
-});
-
-const Demo = (): JSX.Element => <SectionHeading {...createDemoProps()} />;
+const Demo = (): JSX.Element => (
+  <SectionHeading title="National Budget Summary" share phases={phases} years={years} />
+);
 
 export default Demo;
