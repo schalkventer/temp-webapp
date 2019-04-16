@@ -29,3 +29,5 @@ const transformData = ({ items }: TresponseAPI['data'], { id }: TrouterObject): 
     description: item.description,
   };
 };
+
+export default transformData;
