@@ -96,7 +96,7 @@ const transformData = (response: Tresponse): Tdata => {
 
     const amount = children.reduce(
       // eslint-disable-next-line no-shadow
-      (result: number, { amount }: { amount: number }): number => result + amount,
+      (result: Tamount, { amount }: { amount: Tamount }): number => result + amount,
       0,
     );
     const percentage = (amount / response.data.total) * 100;
@@ -119,3 +119,5 @@ const transformData = (response: Tresponse): Tdata => {
     provinces,
   };
 };
+
+export default transformData;
